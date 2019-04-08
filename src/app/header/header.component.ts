@@ -10,12 +10,15 @@ export class HeaderComponent implements OnInit {
 
   sitelogo = '/assets/images/logo.png';
 
+  counter = 0;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   changeName(evt: MouseEvent) {
+    this.counter++;
     console.log(evt);
     if (evt.ctrlKey) {
       this.sitename = 'The Will Will Web';
