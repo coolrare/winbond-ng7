@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  sitename = 'Hello World';
+  @Input() sitename = 'Hello World';
+
+  @Output() click_logo = new EventEmitter<any>();
 
   sitelogo = '/assets/images/logo.png';
 
@@ -18,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeName(evt: MouseEvent) {
+    this.click_logo.emit('clicked');
     this.counter++;
     console.log(evt);
     if (evt.ctrlKey) {

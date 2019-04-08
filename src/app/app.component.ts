@@ -81,4 +81,8 @@ export class AppComponent {
     console.log(str);
     this.keyword = str;
   }
+
+  logoClicked(str: string) {
+    this.keyword = str;
+  }
 }
