@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'winbond-ng7';
   keyword = '';
+
+  clearKeyword() {
+    this.keyword = '';
+  }
+
+  doSearch(str) {
+    console.log(str);
+    this.keyword = str;
+  }
 }
