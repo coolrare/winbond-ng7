@@ -1,10 +1,5 @@
 <app-header [sitename]="title" (click_logo)="logoClicked($event)"></app-header>
 
-<ul>
-  <li><a (click)="changePage(1)">{{1|page:false}}</a></li>
-  <li><a (click)="changePage(2)">{{2|page:false}}</a></li>
-  <li><a (click)="changePage(3)">{{3|page}}</a></li>
-</ul>
 <!-- CONTAINER START-->
 <section class="container">
   <div class="row">
@@ -13,7 +8,7 @@
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
         <!-- Article START-->
         <article class="post" id="post0"
-                 *ngFor="let item of data|slice:pageNo*pageSize:(pageNo+1)*(pageSize)">
+                 *ngFor="let item of data">
           <header class="post-header">
             <h2 class="post-title">
               <a [href]="item.href">
@@ -33,7 +28,6 @@
           </header>
           <section class="post-body text" [innerHTML]="item.summary">
           </section>
-          <pre>{{item | json}}</pre>
         </article>
         <!-- Article END-->
       </div>
