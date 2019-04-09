@@ -14,16 +14,7 @@ export class AppComponent {
   pageSize = 2;
   pageNo = 0;
 
-  data: any[] = [];
-
-  constructor(private datasvc: DataService) {
-    this.data = datasvc.data;
-  }
-
-  doDelete(id) {
-    console.log(id);
-    this.data = this.data.filter(x => x.id !== id);
-  }
+  constructor(public datasvc: DataService) { }
 
   changePage(idx: number) {
     this.pageNo = idx - 1;

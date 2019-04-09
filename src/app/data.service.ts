@@ -70,4 +70,7 @@ export class DataService {
 
   constructor() { }
 
+  doDelete(id) {
+    this.data = this.data.filter(x => x.id !== id);
+  }
 }
