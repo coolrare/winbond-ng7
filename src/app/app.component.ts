@@ -14,10 +14,15 @@ export class AppComponent {
   pageSize = 2;
   pageNo = 0;
 
-  data: any = {};
+  data: any[] = [];
 
   constructor(private datasvc: DataService) {
     this.data = datasvc.data;
+  }
+
+  doDelete(id) {
+    console.log(id);
+    this.data = this.data.filter(x => x.id !== id);
   }
 
   changePage(idx: number) {
