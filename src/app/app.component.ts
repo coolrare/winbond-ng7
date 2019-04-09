@@ -10,6 +10,13 @@ export class AppComponent {
   title = 'winbond-ng7';
   keyword = '';
 
+  pageSize = 2;
+  pageNo = 0;
+
+  changePage(idx: number) {
+    this.pageNo = idx - 1;
+  }
+
   data = [
     {
       id: 1,

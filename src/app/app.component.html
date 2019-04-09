@@ -1,5 +1,10 @@
 <app-header [sitename]="title" (click_logo)="logoClicked($event)"></app-header>
 
+<ul>
+  <li><a (click)="changePage(1)">1</a></li>
+  <li><a (click)="changePage(2)">2</a></li>
+  <li><a (click)="changePage(3)">3</a></li>
+</ul>
 <!-- CONTAINER START-->
 <section class="container">
   <div class="row">
@@ -7,10 +12,15 @@
       <div id="ctl00_cphBody_divError"></div>
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
         <!-- Article START-->
-        <article class="post" id="post0" *ngFor="let item of data">
+        <article class="post" id="post0"
+                 *ngFor="let item of data|slice:pageNo*pageSize:(pageNo+1)*(pageSize)">
           <header class="post-header">
             <h2 class="post-title">
-              <a [href]="item.href">{{item.title}}</a>
+              <a [href]="item.href">
+                {{ item.title | uppercase }}
+                <br>{{ 12345 | currency:'TWD':'symbol':'1.0-0' }}
+                <br>NT${{ 12345 | number }}
+              </a>
             </h2>
             <div class="post-info clearfix">
               <span class="post-date"><i class="glyphicon glyphicon-calendar"></i>{{item.date}}</span>
@@ -22,6 +32,7 @@
           </header>
           <section class="post-body text" [innerHTML]="item.summary">
           </section>
+          <pre>{{item | json}}</pre>
         </article>
         <!-- Article END-->
       </div>
