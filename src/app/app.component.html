@@ -1,9 +1,9 @@
 <app-header [sitename]="title" (click_logo)="logoClicked($event)"></app-header>
 
 <ul>
-  <li><a (click)="changePage(1)">1</a></li>
-  <li><a (click)="changePage(2)">2</a></li>
-  <li><a (click)="changePage(3)">3</a></li>
+  <li><a (click)="changePage(1)">{{1|page:false}}</a></li>
+  <li><a (click)="changePage(2)">{{2|page:false}}</a></li>
+  <li><a (click)="changePage(3)">{{3|page}}</a></li>
 </ul>
 <!-- CONTAINER START-->
 <section class="container">
